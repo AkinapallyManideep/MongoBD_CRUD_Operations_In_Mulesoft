@@ -1,0 +1,61 @@
+#%RAML 1.0
+types:
+  mongo-datatype:
+    properties:
+      firstname:
+        example: Example
+        type: string
+      lastname:
+        example: Example
+        type: string
+      email:
+        example: Example
+        type: string
+title: MongoAPI
+mediaType:
+  - application/json
+version: v1
+protocols:
+  - HTTP
+/getstudents:
+  get:
+    responses:
+      "200":
+        body:
+          type: mongo-datatype[]
+/poststudent:
+  post:
+    body:
+      type: mongo-datatype
+    responses:
+      "200":
+        body:
+          type: mongo-datatype
+/deletestudent/{id}:
+  delete:
+    responses:
+      "200":
+        body:
+          type: mongo-datatype
+  uriParameters:
+    id:
+      example: Example
+      type: string
+/editstudent/{id}:
+  put:
+    body:
+      type: mongo-datatype
+    responses:
+      "200":
+        body:
+          type: mongo-datatype
+  uriParameters:
+    id:
+      example: Example
+      type: string
+/getstudent/{id}:
+  get:
+    responses:
+      "200":
+        body:
+          type: mongo-datatype
